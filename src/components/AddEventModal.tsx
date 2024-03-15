@@ -44,14 +44,14 @@ const AddEventModal = ({ open, handleClose, eventFormData, setEventFormData, onA
     <Dialog open={open} onClose={onClose}>
       <DialogTitle>Добавление события</DialogTitle>
       <DialogContent>
-        <DialogContentText>To add a event, please fill in the information below.</DialogContentText>
+        <DialogContentText>Чтобы добавить событие, пожалуйста, заполните информацию ниже.</DialogContentText>
         <Box component="form">
           <TextField
             name="description"
             value={description}
             margin="dense"
             id="description"
-            label="Description"
+            label="Описание"
             type="text"
             fullWidth
             variant="outlined"
@@ -64,16 +64,16 @@ const AddEventModal = ({ open, handleClose, eventFormData, setEventFormData, onA
             options={todos}
             sx={{ marginTop: 4 }}
             getOptionLabel={(option) => option.title}
-            renderInput={(params) => <TextField {...params} label="Todo" />}
+            renderInput={(params) => <TextField {...params} label="Действие" />}
           />
         </Box>
       </DialogContent>
       <DialogActions>
         <Button color="error" onClick={onClose}>
-          Cancel
+          Отмена
         </Button>
         <Button disabled={description === ""} color="success" onClick={onAddEvent}>
-          Add
+          Добавить
         </Button>
       </DialogActions>
     </Dialog>

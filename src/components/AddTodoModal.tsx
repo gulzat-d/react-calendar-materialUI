@@ -55,7 +55,7 @@ export const AddTodoModal = ({ open, handleClose, todos, setTodos }: IProps) => 
             autoFocus
             margin="dense"
             id="title"
-            label="Title"
+            label="Заголовок"
             type="text"
             fullWidth
             sx={{ mb: 6 }}
@@ -96,7 +96,7 @@ export const AddTodoModal = ({ open, handleClose, todos, setTodos }: IProps) => 
       <Divider />
       <DialogActions sx={{ marginTop: 2 }}>
         <Button sx={{ marginRight: 2 }} variant="contained" color="error" onClick={onClose}>
-          Cancel
+          Отмена
         </Button>
         <Button
           onClick={() => onAddTodo()}
@@ -105,7 +105,7 @@ export const AddTodoModal = ({ open, handleClose, todos, setTodos }: IProps) => 
           variant="contained"
           color="success"
         >
-          Add
+          Добавить
         </Button>
       </DialogActions>
     </Dialog>

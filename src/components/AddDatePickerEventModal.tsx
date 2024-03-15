@@ -76,14 +76,14 @@ const AddDatePickerEventModal = ({
     <Dialog open={open} onClose={onClose}>
       <DialogTitle>Добавление события</DialogTitle>
       <DialogContent>
-        <DialogContentText>To add a event, please fill in the information below.</DialogContentText>
+        <DialogContentText>Чтобы добавить событие, пожалуйста, заполните информацию ниже.</DialogContentText>
         <Box component="form">
           <TextField
             name="description"
             value={description}
             margin="dense"
             id="description"
-            label="Description"
+            label="Описание"
             type="text"
             fullWidth
             variant="outlined"
@@ -92,10 +92,10 @@ const AddDatePickerEventModal = ({
           <LocalizationProvider dateAdapter={AdapterDateFns}>
             <Box mb={2} mt={5}>
               <DateTimePicker
-                label="Start date"
+                label="Начало"
                 value={start}
-                ampm={true}
-                minutesStep={30}
+                ampm={false}
+                minutesStep={1}
                 onChange={(newValue) =>
                   setDatePickerEventFormData((prevState) => ({
                     ...prevState,
@@ -108,17 +108,17 @@ const AddDatePickerEventModal = ({
 
             <Box>
               <Typography variant="caption" color="text" component={"span"}>
-                All day?
+                Весь день
               </Typography>
               <Checkbox onChange={handleCheckboxChange} value={allDay} />
             </Box>
 
             <DateTimePicker
-              label="End date"
+              label="Конец"
               disabled={allDay}
               minDate={start}
-              minutesStep={30}
-              ampm={true}
+              minutesStep={1}
+              ampm={false}
               value={allDay ? null : end}
               onChange={(newValue) =>
                 setDatePickerEventFormData((prevState) => ({
@@ -136,16 +136,16 @@ const AddDatePickerEventModal = ({
             options={todos}
             sx={{ marginTop: 4 }}
             getOptionLabel={(option) => option.title}
-            renderInput={(params) => <TextField {...params} label="Todo" />}
+            renderInput={(params) => <TextField {...params} label="Действие" />}
           />
         </Box>
       </DialogContent>
       <DialogActions>
         <Button color="error" onClick={onClose}>
-          Cancel
+          Отмена
         </Button>
         <Button disabled={isDisabled()} color="success" onClick={onAddEvent}>
-          Add
+          Добавить
         </Button>
       </DialogActions>
     </Dialog>
