@@ -193,7 +193,7 @@ const EventCalendar = () => {
               messages={{
                 day: 'День', 
                 week: 'Неделя', 
-                month: 'месяц',
+                month: 'Месяц',
                 previous: 'Предыдущий',
                 today: 'Текущий',
                 next: 'Следующий',
@@ -216,7 +216,6 @@ const EventCalendar = () => {
               }}
               style={{
                 height: 500,
-                width: 700
               }}
             />
           </CardContent>
