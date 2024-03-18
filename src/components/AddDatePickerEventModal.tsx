@@ -12,9 +12,10 @@ import {
   Checkbox,
   Typography,
 } from "@mui/material"
-import { LocalizationProvider, DateTimePicker } from "@mui/x-date-pickers"
+import { LocalizationProvider, DateTimePicker, ruRU } from "@mui/x-date-pickers"
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns"
 import { DatePickerEventFormData, ITodo } from "./EventCalendar"
+import ru from 'date-fns/locale/ru';
 
 interface IProps {
   open: boolean
@@ -72,7 +73,9 @@ const AddDatePickerEventModal = ({
     return false
   }
 
+
   return (
+    <LocalizationProvider dateAdapter={AdapterDateFns}  adapterLocale={ru}>
     <Dialog open={open} onClose={onClose}>
       <DialogTitle>Добавление события</DialogTitle>
       <DialogContent>
@@ -89,10 +92,10 @@ const AddDatePickerEventModal = ({
             variant="outlined"
             onChange={onChange}
           />
-          <LocalizationProvider dateAdapter={AdapterDateFns}>
             <Box mb={2} mt={5}>
               <DateTimePicker
                 label="Начало"
+                
                 value={start}
                 ampm={false}
                 minutesStep={1}
@@ -128,7 +131,6 @@ const AddDatePickerEventModal = ({
               }
               renderInput={(params) => <TextField {...params} />}
             />
-          </LocalizationProvider>
           <Autocomplete
             onChange={handleTodoChange}
             disablePortal
@@ -137,7 +139,7 @@ const AddDatePickerEventModal = ({
             sx={{ marginTop: 4 }}
             getOptionLabel={(option) => option.title}
             renderInput={(params) => <TextField {...params} label="Действие" />}
-          />
+            />
         </Box>
       </DialogContent>
       <DialogActions>
@@ -149,6 +151,7 @@ const AddDatePickerEventModal = ({
         </Button>
       </DialogActions>
     </Dialog>
+  </LocalizationProvider>
   )
 }
 
