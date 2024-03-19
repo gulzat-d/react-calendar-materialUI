@@ -6,11 +6,11 @@ import dayjs from 'dayjs';
 
 import "react-big-calendar/lib/css/react-big-calendar.css"
 
-import EventInfo from "./EventInfo"
 import AddEventModal from "./AddEventModal"
 import EventInfoModal from "./EventInfoModal"
 import { AddTodoModal } from "./AddTodoModal"
 import AddDatePickerEventModal from "./AddDatePickerEventModal"
+import DateCellWrapper from './DateCellWrapper';
 
 const localizer = dayjsLocalizer(dayjs);
 
@@ -184,6 +184,7 @@ const EventCalendar = () => {
             />
             <Calendar
               localizer={localizer}
+              components={{dateCellWrapper: DateCellWrapper, }}
               views={{
                 day: true,
                 week: true,
@@ -202,7 +203,6 @@ const EventCalendar = () => {
               onSelectSlot={handleSelectSlot}
               selectable
               startAccessor="start"
-              components={{ event: EventInfo,  }}
               endAccessor="end"
               defaultView="month"
               eventPropGetter={(event) => {
@@ -217,7 +217,9 @@ const EventCalendar = () => {
               style={{
                 height: 500,
               }}
-            />
+              // children={<div></div>}
+            >
+            </Calendar>
           </CardContent>
         </Card>
       </Container>
